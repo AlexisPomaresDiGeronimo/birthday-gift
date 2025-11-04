@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Happy Birthday — Love of My Life</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff5f8;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    gap: 20px;
+    padding: 28px;
+    border-radius: 16px;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    position: relative;
+    z-index: 1;
+    opacity: 0.9;
+    max-width: 90%;
+    text-align: center;
+  }
+
+  #heart-wrapper {
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .heart {
+    width: 240px;
+    height: 240px;
+    pointer-events: none; /* wrapper handles taps/clicks */
+    transition: transform 0.2s;
+  }
+
+  .heart:hover {
+    transform: scale(1.05);
+  }
+
+  .heart-path {
+    fill: none;
+    stroke: #ff4d7a;
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 800;
+    stroke-dashoffset: 0;
+    animation: pulse 1s ease-in-out infinite alternate;
+  }
+
+  .heart-path-pulse {
+    stroke: none;
+    fill: rgba(255,77,122,0.06);
+    opacity: 1;
+    animation: pulse 1s ease-in-out infinite alternate;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.07); }
+  }
+
+  .click-me {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.4rem;
+    padding: 10px 25px;
+    background: #ff4d7a;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(255,77,122,0.5);
+    cursor: pointer;
+    user-select: none;
+    animation: pulseButton 1.5s infinite alternate;
+  }
+
+  @keyframes pulseButton {
+    0% { transform: scale(1); box-shadow: 0 4px 15px rgba(255,77,122,0.5); }
+    100% { transform: scale(1.08); box-shadow: 0 8px 20px rgba(255,77,122,0.7); }
+  }
+
+  h1 { margin: 0; color: #ff4d7a; font-size: 1.6rem; line-height: 1.2; }
+  p.sub { margin: 0; color: #666; font-size: 0.95rem; }
+
+  #message {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    color: #444;
+    text-align: center;
+    margin-top: 16px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    transition: opacity 1s ease, max-height 1s ease;
+  }
+
+  #message.show {
+    opacity: 1;
+    max-height: 500px;
+  }
+
+  /* Balloon styling */
+  .balloon {
+    position: absolute;
+    bottom: -80px;
+    width: 40px;
+    height: 60px;
+    border-radius: 50% 50% 50% 50%;
+    z-index: 0;
+    opacity: 0.9;
+    animation: floatUp linear forwards;
+  }
+
+  .balloon::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    width: 2px;
+    height: 20px;
+    background: #555;
+    transform: translateX(-50%);
+  }
+
+  @keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity: 0.9; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-2000px) scale(1.1); opacity: 0; }
+  }
+
+  /* Mobile responsive tweaks */
+  @media (max-width: 480px){
+    .heart { width: 160px; height: 160px; }
+    .card { padding: 16px; gap: 15px; }
+    h1 { font-size: 1.3rem; }
+    .click-me { font-size: 1.1rem; padding: 8px 18px; }
+    #message { font-size: 0.95rem; line-height: 1.4; }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div id="heart-wrapper">
+    <svg class="heart" viewBox="0 0 630 500" aria-hidden="true">
+      <path class="heart-path-pulse" d="M256 464s-6-4-22-20c-53-50-88-89-112-128-23-36-36-68-36-104 0-66 54-120 120-120 42 0 78 24 96 60 18-36 54-60 96-60 66 0 120 54 120 120 0 36-13 68-36 104-24 39-59 78-112 128-16 16-22 20-22 20z"/>
+      <path class="heart-path" d="M256 464s-6-4-22-20c-53-50-88-89-112-128-23-36-36-68-36-104 0-66 54-120 120-120 42 0 78 24 96 60 18-36 54-60 96-60 66 0 120 54 120 120 0 36-13 68-36 104-24 39-59 78-112 128-16 16-22 20-22 20z"/>
+    </svg>
+  </div>
+
+  <div class="click-me" id="clickMe">Click the heart!</div><br>
+  <h1>Χρόνια σου πολλά κορίτσι μου!</h1>
+  <p class="sub">Σου εύχομαι μια μέρα τόσο όμορφη όσο κι εσύ.</p>
+
+  <div id="message">
+    Γειά σου,<br>
+    Σήμερα είναι η μέρα σου και δεν θα μπορούσα να μην σου γράψω.<br>
+    Θέλω να ξέρεις πόσο ξεχωριστή είσαι για μένα.<br>
+    Κάθε στιγμή που έχουμε μοιραστεί, κάθε γέλιο, κάθε συζήτηση, κάθε μικρή στιγμή μαζί σου έχει μείνει χαραγμένη στην καρδιά μου.<br>
+    Δεν ξέρω τι επιφυλάσσει το μέλλον, αλλά ξέρω ότι θέλω να σε γνωρίσω ακόμα καλύτερα, να ζήσω περισσότερες στιγμές μαζί σου και να σου προσφέρω τόση χαρά όση μου δίνεις.<br>
+    Η παρουσία σου είναι πολύ σημαντική στη ζωή μου, και κάθε φορά που σε σκέφτομαι, χαμογελάω χωρίς λόγο.<br>
+    Σου εύχομαι η σημερινή μέρα να σου φέρει όσα αγαπάς και να σε κάνει να αισθανθείς ξεχωριστή όπως πραγματικά είσαι.<br>
+    Και να ξέρεις, όσα έχουμε ζήσει μέχρι τώρα είναι μόνο η αρχή από όσα θα μπορούσαμε να μοιραστούμε. ❤️<br><br>
+    Χρόνια σου πολλά αγάπη μου! 🎂<br>
+    Αλέξης!❤️
+  </div>
+</div>
+
+<script>
+  const heartWrapper = document.getElementById('heart-wrapper');
+  const clickMe = document.getElementById('clickMe');
+  const message = document.getElementById('message');
+
+  function createBalloon() {
+    const balloon = document.createElement('div');
+    balloon.classList.add('balloon');
+    const colors = ['#ff4d7a','#ffbb3b','#6ab04c','#3498db','#9b59b6'];
+    balloon.style.background = colors[Math.floor(Math.random() * colors.length)];
+    balloon.style.left = Math.random() * window.innerWidth + 'px';
+    balloon.style.animationDuration = (4 + Math.random() * 4) + 's';
+    document.body.appendChild(balloon);
+
+    balloon.addEventListener('animationend', () => {
+      balloon.remove();
+    });
+  }
+
+  function showMessageAndBalloons(e) {
+    e.preventDefault(); // prevent double trigger on mobile
+    message.classList.toggle('show');
+    clickMe.style.display = 'none';
+    for(let i = 0; i < 15; i++) {
+      setTimeout(createBalloon, i * 400);
+    }
+  }
+
+  // Works on desktop and mobile
+  heartWrapper.addEventListener('click', showMessageAndBalloons);
+  heartWrapper.addEventListener('touchstart', showMessageAndBalloons);
+</script>
+
+</body>
+</html>
