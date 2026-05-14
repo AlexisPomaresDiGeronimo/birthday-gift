@@ -1,214 +1,200 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Happy Birthday — Love of My Life</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-  html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #fff5f8;
-    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    overflow-x: hidden;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Letter from Paxos to Faro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  .card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-    border-radius: 16px;
-    background: white;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-    position: relative;
-    z-index: 1;
-    opacity: 0.9;
-    max-width: 90%;
-    text-align: center;
-  }
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #3b2a1f, #1f140d);
+      overflow-x: hidden;
+      font-family: 'Cinzel', serif;
+    }
 
-  #heart-wrapper {
-    display: inline-block;
-    cursor: pointer;
-  }
+    .papyrus {
+      position: relative;
+      width: 90%;
+      max-width: 900px;
+      background: #f3e2b8;
+      color: #4b2f1a;
+      padding: 70px 60px;
+      border-radius: 12px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.55);
+      border: 8px solid rgba(120, 74, 38, 0.35);
+      overflow: hidden;
+    }
 
-  .heart {
-    width: 200px;
-    height: 200px;
-    pointer-events: none; /* wrapper handles taps/clicks */
-    transition: transform 0.2s;
-  }
+    .papyrus::before,
+    .papyrus::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(rgba(110, 70, 40, 0.10) 1px, transparent 1px),
+        radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+      background-size: 18px 18px, 25px 25px;
+      mix-blend-mode: multiply;
+    }
 
-  .heart:hover {
-    transform: scale(1.05);
-  }
+    .burn-edge {
+      position: absolute;
+      inset: 0;
+      border-radius: 12px;
+      box-shadow:
+        inset 0 0 25px rgba(85, 45, 20, 0.6),
+        inset 0 0 60px rgba(120, 70, 35, 0.35);
+      pointer-events: none;
+    }
 
-  .heart-path {
-    fill: none;
-    stroke: #ff4d7a;
-    stroke-width: 6;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-dasharray: 800;
-    stroke-dashoffset: 0;
-    animation: pulse 1s ease-in-out infinite alternate;
-  }
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 12px;
+      letter-spacing: 2px;
+      color: #5e3317;
+      text-shadow: 1px 1px 0 rgba(255,255,255,0.3);
+    }
 
-  .heart-path-pulse {
-    stroke: none;
-    fill: rgba(255,77,122,0.06);
-    opacity: 1;
-    animation: pulse 1s ease-in-out infinite alternate;
-  }
+    .subtitle {
+      text-align: center;
+      font-size: 1rem;
+      margin-bottom: 45px;
+      opacity: 0.75;
+      letter-spacing: 3px;
+    }
 
-  @keyframes pulse {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.07); }
-  }
+    .letter {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      line-height: 1.9;
+      color: #4a2c1c;
+    }
 
-  .click-me {
-    text-align: center;
-    color: white;
-    font-weight: bold;
-    font-size: 1.4rem;
-    padding: 10px 25px;
-    background: #ff4d7a;
-    border-radius: 30px;
-    box-shadow: 0 4px 15px rgba(255,77,122,0.5);
-    cursor: pointer;
-    user-select: none;
-    animation: pulseButton 1.5s infinite alternate;
-  }
+    .letter p {
+      margin-bottom: 26px;
+    }
 
-  @keyframes pulseButton {
-    0% { transform: scale(1); box-shadow: 0 4px 15px rgba(255,77,122,0.5); }
-    100% { transform: scale(1.08); box-shadow: 0 8px 20px rgba(255,77,122,0.7); }
-  }
+    .signature {
+      margin-top: 50px;
+      text-align: right;
+      font-size: 2.3rem;
+    }
 
-  h1 { margin: 0; color: #ff4d7a; font-size: 1.6rem; line-height: 1.2; }
-  p.sub { margin: 0; color: #666; font-size: 0.95rem; }
+    .wax-seal {
+      position: absolute;
+      bottom: 30px;
+      left: 40px;
+      width: 90px;
+      height: 90px;
+      background: radial-gradient(circle at 30% 30%, #b32121, #6f0909);
+      border-radius: 50%;
+      box-shadow: inset 0 0 12px rgba(255,255,255,0.15), 0 5px 18px rgba(0,0,0,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.75);
+      font-size: 1.8rem;
+      font-weight: bold;
+      font-family: serif;
+      transform: rotate(-12deg);
+    }
 
-  #message {
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    color: #444;
-    text-align: center;
-    font-size: 1.05rem;
-    line-height: 1.5;
-    transition: opacity 1s ease, max-height 1s ease;
-  }
+    .date {
+      text-align: right;
+      font-size: 1rem;
+      margin-bottom: 30px;
+      opacity: 0.8;
+    }
 
-  #message.show {
-    opacity: 1;
-    max-height: 500px;
-  }
+    @media (max-width: 768px) {
+      .papyrus {
+        padding: 45px 28px;
+      }
 
-  /* Balloon styling */
-  .balloon {
-    position: absolute;
-    bottom: -80px;
-    width: 40px;
-    height: 60px;
-    border-radius: 50% 50% 50% 50%;
-    z-index: 0;
-    opacity: 0.9;
-    animation: floatUp linear forwards;
-  }
+      h1 {
+        font-size: 2rem;
+      }
 
-  .balloon::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    width: 2px;
-    height: 20px;
-    background: #555;
-    transform: translateX(-50%);
-  }
+      .letter {
+        font-size: 1.45rem;
+        line-height: 1.7;
+      }
 
-  @keyframes floatUp {
-    0% { transform: translateY(0) scale(1); opacity: 0.9; }
-    50% { opacity: 1; }
-    100% { transform: translateY(-2000px) scale(1.1); opacity: 0; }
-  }
-
-  /* Mobile responsive tweaks */
-  @media (max-width: 480px){
-    .heart { width: 160px; height: 160px; }
-    .card { padding: 16px; gap: 15px; }
-    h1 { font-size: 1.3rem; }
-    .click-me { font-size: 1.1rem; padding: 8px 18px; }
-    #message { font-size: 0.95rem; line-height: 1.4; }
-  }
-
-</style>
+      .signature {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="papyrus">
+    <div class="burn-edge"></div>
 
-<div class="card">
-  <div id="heart-wrapper">
-    <svg class="heart" viewBox="0 0 570 440" aria-hidden="true">
-      <path class="heart-path-pulse" d="M256 464s-6-4-22-20c-53-50-88-89-112-128-23-36-36-68-36-104 0-66 54-120 120-120 42 0 78 24 96 60 18-36 54-60 96-60 66 0 120 54 120 120 0 36-13 68-36 104-24 39-59 78-112 128-16 16-22 20-22 20z"/>
-      <path class="heart-path" d="M256 464s-6-4-22-20c-53-50-88-89-112-128-23-36-36-68-36-104 0-66 54-120 120-120 42 0 78 24 96 60 18-36 54-60 96-60 66 0 120 54 120 120 0 36-13 68-36 104-24 39-59 78-112 128-16 16-22 20-22 20z"/>
-    </svg>
+    <h1>From Paxos to Faro</h1>
+    <div class="subtitle">A LETTER WRITTEN WITH THE SEA STILL IN MY HEART</div>
+
+    <div class="date">24 May — Faro, Portugal</div>
+
+    <div class="letter">
+      <p>
+        There are meetings that disappear with the sunset… and there are meetings that stay quietly inside you,
+        long after the island, the music, and the waves are gone.
+      </p>
+
+      <p>
+        Meeting you in Paxos felt like one of those rare moments that time slows down for.
+        The sea looked softer, the nights warmer, and every conversation with you felt strangely familiar,
+        as if life had already written our paths somewhere before we ever arrived there.
+      </p>
+
+      <p>
+        Since then, I kept thinking about your smile, your eyes, and the feeling of walking beside you under the island sky.
+        Some people become memories.
+        You became a reason to travel.
+      </p>
+
+      <p>
+        And now, on the 24th of May, I will cross countries and seas again — this time to see you in Faro.
+        Not because I had to.
+        Because some connections deserve distance to be defeated.
+      </p>
+
+      <p>
+        Maybe life is made of these unexpected moments:
+        two people meeting on a Greek island,
+        and continuing the story under the Portuguese sun.
+      </p>
+
+      <p>
+        Until Faro…
+        keep a little space for me in your thoughts,
+        as I already keep one for you in mine.
+      </p>
+
+      <div class="signature">
+        Yours,
+        <br>
+        The boy you met in Paxos
+      </div>
+    </div>
+
+    <div class="wax-seal">✦</div>
   </div>
-  <div class="click-me" id="clickMe">Click the heart!</div>
-  <h1>Χρόνια σου πολλά κορίτσι μου!</h1>
-  <p class="sub">Σου εύχομαι μια μέρα τόσο όμορφη όσο κι εσύ.</p>
-
-  <div id="message">
-    Γειά σου,<br>
-    Σήμερα είναι η μέρα σου και δεν θα μπορούσα να μην σου γράψω.
-    Θέλω να ξέρεις πόσο ξεχωριστή είσαι για μένα.<br>
-    Κάθε στιγμή που έχουμε μοιραστεί, κάθε γέλιο, κάθε συζήτηση, κάθε μικρή στιγμή μαζί σου έχει μείνει χαραγμένη στην καρδιά μου.<br>
-    Δεν ξέρω τι επιφυλάσσει το μέλλον, αλλά ξέρω ότι θέλω να σε γνωρίσω ακόμα καλύτερα, να ζήσω περισσότερες στιγμές μαζί σου και να σου προσφέρω τόση χαρά όση μου δίνεις.<br>
-    Η παρουσία σου είναι πολύ σημαντική στη ζωή μου, και κάθε φορά που σε σκέφτομαι, χαμογελάω χωρίς λόγο.<br>
-    Σου εύχομαι η σημερινή μέρα να σου φέρει όσα αγαπάς και να σε κάνει να αισθανθείς ξεχωριστή όπως πραγματικά είσαι.<br>
-    Και να ξέρεις, όσα έχουμε ζήσει μέχρι τώρα είναι μόνο η αρχή από όσα θα μπορούσαμε να μοιραστούμε. ❤️<br>
-    Χρόνια σου πολλά αγάπη μου! 🎂<br>
-    Αλέξης!❤️
-  </div>
-</div>
-
-<script>
-  const heartWrapper = document.getElementById('heart-wrapper');
-  const clickMe = document.getElementById('clickMe');
-  const message = document.getElementById('message');
-
-  function createBalloon() {
-    const balloon = document.createElement('div');
-    balloon.classList.add('balloon');
-    const colors = ['#ff4d7a','#ffbb3b','#6ab04c','#3498db','#9b59b6'];
-    balloon.style.background = colors[Math.floor(Math.random() * colors.length)];
-    balloon.style.left = Math.random() * window.innerWidth + 'px';
-    balloon.style.animationDuration = (4 + Math.random() * 4) + 's';
-    document.body.appendChild(balloon);
-
-    balloon.addEventListener('animationend', () => {
-      balloon.remove();
-    });
-  }
-
-  function showMessageAndBalloons(e) {
-    e.preventDefault(); // prevent double trigger on mobile
-    message.classList.toggle('show');
-    clickMe.style.display = 'none';
-    for(let i = 0; i < 15; i++) {
-      setTimeout(createBalloon, i * 400);
-    }
-  }
-
-  // Works on desktop and mobile
-  heartWrapper.addEventListener('click', showMessageAndBalloons);
-  heartWrapper.addEventListener('touchstart', showMessageAndBalloons);
-</script>
-
 </body>
 </html>
