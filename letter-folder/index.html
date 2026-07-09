@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="el">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Για το σουσουρίδι μου ❤️</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Georgia, serif;
+            background: linear-gradient(135deg, #fdeff2, #fff7f8, #fef6e4);
+            overflow-x: hidden;
+        }
+
+        /* Falling hearts */
+        .hearts {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .heart {
+            position: absolute;
+            color: #e91e63;
+            animation: fall linear forwards;
+        }
+        @keyframes fall {
+            from {
+                transform: translateY(-10vh);
+            }
+
+            to {
+                transform: translateY(110vh);
+            }
+        }
+        /* Main */
+        .wrap {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .letter {
+            background: white;
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, .15);
+        }
+        h1 {
+            text-align: center;
+            color: #c2185b;
+            font-size: 2.5rem;
+        }
+        h2 {
+            color: #c2185b;
+            margin-top: 50px;
+        }
+        .date {
+            text-align: right;
+            color: #777;
+        }
+        p {
+            font-size: 1.35rem;
+            line-height: 1.8;
+        }
+        .highlight-date {
+            color: #c2185b;
+            font-weight: bold;
+            background: #fde8ef;
+            padding: 3px 8px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(194,24,91,.15);
+        }
+        .countdown-box {
+            margin-top: 50px;
+            text-align: center;
+            background: #fff0f5;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(194,24,91,.15);
+        }
+
+        .countdown-box h2 {
+            margin-top:0;
+            color:#c2185b;
+        }
+
+        #countdown {
+            font-size: 1.8rem;
+            font-weight:bold;
+            color:#e91e63;
+            letter-spacing:1px;
+        }
+        /* Gallery */
+        .gallery {
+            margin-top: 35px;
+            columns: 3 250px;
+            column-gap: 18px;
+        }
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 18px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, .18);
+            cursor: pointer;
+        }
+        .gallery-item img {
+            width: 100%;
+            display: block;
+            border-radius: 18px;
+            transition: .5s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 18px;
+            color: white;
+            text-align: center;
+            font-size: 1.1rem;
+            background: linear-gradient(transparent,
+                    rgba(0, 0, 0, .7));
+            opacity: 0;
+            transition: .4s;
+        }
+        .gallery-item:hover .caption {
+            opacity: 1;
+        }
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .85);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(255, 255, 255, .25);
+        }
+        .lightbox.active {
+            display: flex;
+        }
+        /* Signature */
+        .signature {
+            text-align: right;
+            margin-top: 50px;
+            font-size: 1.2rem;
+        }
+        /* Mobile */
+        @media(max-width:600px) {
+            .letter {
+
+                padding: 25px;
+
+            }
+            h1 {
+
+                font-size: 2rem;
+
+            }
+            p {
+                font-size: 1.15rem;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+    <div class="wrap">
+        <div class="letter">
+            <div class="date">
+                10 Ιουλίου 2026
+            </div>
+            <h1>
+                Αγάπη μου όμορφη ❤️
+            </h1>
+            <p>
+                Όλα ξεκίνησαν στις <span class="highlight-date">10 Απριλίου 2026</span>.
+                Μια μέρα που τότε ίσως να μην καταλaβαίναμε πόσο σημαντική θα γινόταν, αλλά τελικά ήταν η αρχή της ομορφότερης ιστορίας. 
+                Από εκείνη τη στιγμή ξεκίνησε ένα ταξίδι γεμάτο χαμόγελα, όμορφες στιγμές και αναμνήσεις που θα κρατάω πάντα μέσα μου.
+            </p>
+            <p>
+                Σήμερα, στις <span class="highlight-date">10 Ιουλίου 2026</span>, συμπληρώνονται τρεις μήνες από τότε που μπήκες 
+                στη ζωή μου και νιώθω πραγματικά τυχερός που έχεις γίνει κομμάτι της. 
+                Νιώθω ευγνωμοσύνη για την κάθε στιγμή που έχουμε μοιραστεί και για το πόσο όμορφη έχεις κάνει την καθημερινότητά μου.
+            </p>
+            <p>
+                Μπορεί οι τρεις μήνες να ακούγονται λίγοι, αλλά μέσα σε αυτό το μικρό χρονικό διάστημα καταφέραμε
+                 να δημιουργήσουμε τόσες όμορφες αναμνήσεις που θα κρατάω πάντα μέσα μου.
+
+                Από τις πιο μικρές καθημερινές μας στιγμές μέχρι τις μεγαλύτερες που έχουμε ακόμα μπροστά μας, 
+                κάθε χαμόγελο, κάθε αγκαλιά, κάθε γέλιο και κάθε στιγμή που μοιραστήκαμε έχει χαρακτεί μέσα μου.
+
+            </p>
+
+            <p>
+                Τρεις μήνες οι οποίοι για μένα είναι αρκετός για να καταλάβω πόσο ξεχωριστή είσαι. 
+                Σε ευχαριστώ που ήρθες στη ζωή μου, που με κάνεις να χαμογελάω και που μαζί σου κάθε στιγμή γίνεται πιο όμορφη.
+            </p>
+            <p>
+
+                Ανυπομονώ για όλα όσα έχουμε μπροστά μας. Για τις νέες αναμνήσεις που θα δημιουργήσουμε,
+                για τα μέρη που θα επισκεφτούμε, για τα γέλια που θα μοιραστούμε 
+                και για όλες τις όμορφες στιγμές που δεν έχουμε ζήσει ακόμα.
+            </p>
+            <p>
+            Η <span class="highlight-date">10η Απριλίου 2026</span> θα είναι πάντα μια ξεχωριστή ημερομηνία για μένα, γιατί ήταν η αρχή της δικής μας ιστορίας. 
+            Και η <span class="highlight-date">10η Ιουλίου 2026</span> είναι ακόμα μια όμορφη στιγμή που μου θυμίζει πόσο τυχερός είμαι που σε έχω στη ζωή μου. 
+            </p>
+            <p>
+                Εύχομαι αυτοί οι τρεις μήνες να είναι μόνο η αρχή από όλα τα όμορφα που έχουμε να ζήσουμε μαζί.
+            </p>
+            <p>
+                Υ.Γ. Έχω καταλάβει πόσο σημαντική είναι η σημερινή μέρα για σένα και θέλω να γνωρίζεις ότι είναι το ίδιο σημαντικη και για μένα. 
+                Θα ήθελα πολύ να σε έχω στην αγκαλιά μου τωρα και να σου έδειχνα το πως νιώθω για σένα. Δεν πειράζει όμως, θα το γιορτάσουμε μολις έρθω.
+            </p>
+            <div class="countdown-box">
+                <h2>Μέχρι την επόμενή μας στιγμή ❤️</h2>
+                <div id="countdown"></div>
+            </div>
+            <h2>
+                Μια μικρή υπενθύμησή απο όλες τις όμορφες στιγμές μας 📸❤️
+            </h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="photos/selfie-7.jpeg">
+                    <div class="caption">Η αρχή της ιστορίας μας 📖❤️</div>
+                </div> 
+                <div class="gallery-item">
+                    <img src="photos/selfie-6.jpeg">
+                    <div class="caption">H πρώτη μας έξοδος 😍</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photos/selfie-5.jpeg">
+                    <div class="caption">Αναμνήσεις που μένουν ❤️</div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="photos/selfie-1.jpeg">
+                    <div class="caption">Μια όμορφη στιγμή ✨</div>
+                </div>
+
+                
+
+                <div class="gallery-item">
+                    <img src="photos/erimitis-kiss.jpeg">
+                    <div class="caption">Τα φιλιά μας 💋</div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="photos/erimitis-beach-kiss.jpeg">
+                    <div class="caption">Εγω, εσυ και η θάλασσα 🌊❤️</div>
+                </div>
+
+
+
+                
+                <div class="gallery-item">
+                    <img src="photos/selfie-4.jpeg">
+                    <div class="caption">Μαζί παντού 💕</div>
+                </div>
+
+
+
+                <div class="gallery-item">
+                    <img src="photos/erimitis-selfie.jpeg">
+                    <div class="caption">Χαμόγελα μαζί 😊</div>
+                </div>
+
+
+                <div class="gallery-item">
+                    <img src="photos/selfie-2.jpeg">
+                    <div class="caption">Πάντα δίπλα σου ❤️</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="photos/selfie-3.jpeg">
+                    <div class="caption">Οι μικρές μας στιγμές 🥰</div>
+                </div>
+            </div>
+
+            <div class="signature">
+                    Πολλά φιλιά παντού ζωούλα μου,<br>
+                    Ο Ζουζούνος σου ❤️
+        
+            </div>
+
+
+
+        </div>
+
+    </div>
+    <div class="lightbox" id="lightbox">
+
+        <img id="lightbox-img">
+
+    </div>
+
+
+    <script>
+
+        // Falling hearts
+
+        setInterval(() => {
+            let h = document.createElement('div');
+
+            h.className = 'heart';
+
+            h.innerHTML = '❤';
+
+            h.style.left = Math.random() * 100 + 'vw';
+
+            h.style.fontSize = (18 + Math.random() * 18) + 'px';
+
+            h.style.animationDuration = (4 + Math.random() * 5) + 's';
+
+
+            document.getElementById('hearts')
+                .appendChild(h);
+
+            setTimeout(() => h.remove(), 9000);
+
+        }, 300);
+        // Gallery lightbox
+
+        document.querySelectorAll('.gallery-item img')
+            .forEach(img => {
+                img.onclick = () => {
+                    document.getElementById('lightbox-img').src = img.src;
+                    document.getElementById('lightbox')
+                        .classList.add('active');
+                };
+            });
+
+        document.getElementById('lightbox')
+            .onclick = function () {
+
+
+                this.classList.remove('active');
+            };
+            // Countdown μέχρι 18 Ιουλίου 2026 10:35
+
+            const targetDate = new Date("July 18, 2026 10:35:00").getTime();
+
+            setInterval(() => {
+
+                const now = new Date().getTime();
+
+                const distance = targetDate - now;
+
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+                const hours = Math.floor(
+                    (distance % (1000 * 60 * 60 * 24)) /
+                    (1000 * 60 * 60)
+                );
+
+                const minutes = Math.floor(
+                    (distance % (1000 * 60 * 60)) /
+                    (1000 * 60)
+                );
+
+                const seconds = Math.floor(
+                    (distance % (1000 * 60)) /
+                    1000
+                );
+
+
+                document.getElementById("countdown").innerHTML =
+                    days + " μέρες ❤️ " +
+                    hours + " ώρες ❤️ " +
+                    minutes + " λεπτά ❤️ " +
+                    seconds + " δευτερόλεπτα";
+
+
+                if(distance < 0){
+
+                    document.getElementById("countdown").innerHTML =
+                    "Η στιγμή μας έφτασε ❤️";
+
+                }
+
+
+            },1000);
+    </script>
+</body>
+</html>
